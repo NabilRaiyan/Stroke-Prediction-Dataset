@@ -6,3 +6,8 @@ stroke_prediction_dataset
 head(stroke_prediction_dataset)
 tail(stroke_prediction_dataset)
 str(stroke_prediction_dataset)
+
+summary(stroke_prediction_dataset)
+colSums(is.na(stroke_prediction_dataset))
+
+names(stroke_prediction_dataset)
