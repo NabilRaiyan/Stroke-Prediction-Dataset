@@ -21,3 +21,8 @@ dim(stroke_prediction_dataset)
 
 age_outliers <- boxplot(stroke_prediction_dataset$age, main = "Boxplot for age attribute", ylab = "Age")$out
 cat("Potentials outliers on age attribute are: ", age_outliers, "\n")
+
+
+# BMI attribute 
+avg_glucose_level_outliers <- boxplot(stroke_prediction_dataset$avg_glucose_level, main = "Boxplot for Avg Glucose level attribute", ylab = "Avg Glucose level")$out
+cat("Potentials outliers for Avg Glucose level are: ", avg_glucose_level_outliers, "\n")
