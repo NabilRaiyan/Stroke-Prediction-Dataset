@@ -20,6 +20,9 @@ dim(stroke_prediction_dataset)
 # Gender attribute
 stroke_prediction_dataset$gender <-  ifelse(stroke_prediction_dataset$gender == "Male", 1, ifelse(stroke_prediction_dataset$gender == "Female", 0, NA))
 
+# Finding missing value row of gender 
+missing_value_gender <- which(is.na(stroke_prediction_dataset$gender))
+cat("Row number of missing value in gender is: ", missing_value_gender, "\n")
 
 
 
