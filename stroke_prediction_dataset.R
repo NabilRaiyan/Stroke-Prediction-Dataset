@@ -24,7 +24,9 @@ stroke_prediction_dataset$gender <-  ifelse(stroke_prediction_dataset$gender == 
 missing_value_gender <- which(is.na(stroke_prediction_dataset$gender))
 cat("Row number of missing value in gender is: ", missing_value_gender, "\n")
 
-
+# Recovering missing value of gender column using mode and median
+mode_gender <- as.numeric(names(sort(table(stroke_prediction_dataset$gender), decreasing = TRUE)[1]))
+stroke_prediction_dataset$gender[is.na(stroke_prediction_dataset$gender)] <- mode_gender
 
 # Age attribute
 age_outliers <- boxplot(stroke_prediction_dataset$age, main = "Boxplot for age attribute", ylab = "Age")$out
