@@ -17,8 +17,13 @@ names(stroke_prediction_dataset)
 is.na(stroke_prediction_dataset)
 dim(stroke_prediction_dataset)
 
-# Age attribute
+# Gender attribute
+stroke_prediction_dataset$gender <-  ifelse(stroke_prediction_dataset$gender == "Male", 1, ifelse(stroke_prediction_dataset$gender == "Female", 0, NA))
 
+
+
+
+# Age attribute
 age_outliers <- boxplot(stroke_prediction_dataset$age, main = "Boxplot for age attribute", ylab = "Age")$out
 cat("Potentials outliers on age attribute are: ", age_outliers, "\n")
 
