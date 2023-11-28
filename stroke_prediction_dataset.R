@@ -41,6 +41,11 @@ cat("Potentials outliers on age attribute are: ", age_outliers, "\n")
 missing_value_row_age <- which(is.na(stroke_prediction_dataset$age))
 cat("Row number of missing value in age column: ", missing_value_row_age, "\n")
 
+# Recovering missing values of age column using mode and median
+mode_age <- as.numeric(names(sort(table(stroke_prediction_dataset$age), decreasing = TRUE)[1]))
+stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- mode_age
+
+
 # BMI attribute 
 avg_glucose_level_outliers <- boxplot(stroke_prediction_dataset$avg_glucose_level, main = "Boxplot for Avg Glucose level attribute", ylab = "Avg Glucose level")$out
 cat("Potentials outliers for Avg Glucose level are: ", avg_glucose_level_outliers, "\n")
