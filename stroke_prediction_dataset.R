@@ -45,6 +45,8 @@ cat("Row number of missing value in age column: ", missing_value_row_age, "\n")
 mode_age <- as.numeric(names(sort(table(stroke_prediction_dataset$age), decreasing = TRUE)[1]))
 stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- mode_age
 
+medain_age <- median(stroke_prediction_dataset$age, na.rm = TRUE)
+stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- medain_age
 
 # BMI attribute 
 avg_glucose_level_outliers <- boxplot(stroke_prediction_dataset$avg_glucose_level, main = "Boxplot for Avg Glucose level attribute", ylab = "Avg Glucose level")$out
