@@ -37,12 +37,18 @@ stroke_prediction_dataset$gender[is.na(stroke_prediction_dataset$gender)] <- med
 age_outliers <- boxplot(stroke_prediction_dataset$age, main = "Boxplot for age attribute", ylab = "Age")$out
 cat("Potentials outliers on age attribute are: ", age_outliers, "\n")
 
+
+# Finding mode and median value of age column
+median_age <- median(stroke_prediction_dataset$age, na.rm = TRUE)
+mode_age <- as.numeric(names(sort(table(stroke_prediction_dataset$age), decreasing = TRUE)[1]))
+
 #Finding rows of age outliers in age column
 age_outliers_rows <- which(stroke_prediction_dataset$age > 100 | stroke_prediction_dataset$age < 0)
 cat("Potential rows of age outliers: ", age_outliers_rows, "\n")
 
-# Recovering age outliers with mode value
+# Recovering age outliers with mode and median value
 stroke_prediction_dataset$age[c(4988, 5010, 5022, 5027)] <- mode_age
+stroke_prediction_dataset$age[c(4988, 5010, 5022, 5027)] <- median_age
 
 
 # Finding rows of missing values in Age column
@@ -50,10 +56,9 @@ missing_value_row_age <- which(is.na(stroke_prediction_dataset$age))
 cat("Row number of missing value in age column: ", missing_value_row_age, "\n")
 
 # Recovering missing values of age column using mode and median
-mode_age <- as.numeric(names(sort(table(stroke_prediction_dataset$age), decreasing = TRUE)[1]))
 stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- mode_age
 
-medain_age <- median(stroke_prediction_dataset$age, na.rm = TRUE)
+
 stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- medain_age
 
 # BMI attribute 
