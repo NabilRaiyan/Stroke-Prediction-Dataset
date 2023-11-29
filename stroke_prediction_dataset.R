@@ -59,7 +59,7 @@ cat("Row number of missing value in age column: ", missing_value_row_age, "\n")
 stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- mode_age
 stroke_prediction_dataset$age[is.na(stroke_prediction_dataset$age)] <- medain_age
 
-# BMI attribute 
+# Avg Glucose level attribute 
 avg_glucose_level_outliers <- boxplot(stroke_prediction_dataset$avg_glucose_level, main = "Boxplot for Avg Glucose level attribute", ylab = "Avg Glucose level")$out
 cat("Potentials outliers for Avg Glucose level are: ", avg_glucose_level_outliers, "\n")
 
@@ -85,3 +85,12 @@ for (i in 1: length(stroke_prediction_dataset$avg_glucose_level)){
 # Converting ever married column video to yes = 1 and no = 0 
 stroke_prediction_dataset$ever_married <- ifelse(stroke_prediction_dataset$ever_married == "Yes", 1, ifelse(stroke_prediction_dataset$ever_married == "No", 0, NA))
 
+
+# BMI attribute
+
+# Convert non-numeric values to NA
+stroke_prediction_dataset$bmi <- as.numeric(as.character(stroke_prediction_dataset$bmi))
+
+# Boxplot for bmi column
+bmi_outliers <- boxplot(stroke_prediction_dataset$bmi, main = "Boxplot for BMI column", ylab = "BMI")$out
+cat("Potential outliers of BMI column: ", bmi_outliers, "\n")
