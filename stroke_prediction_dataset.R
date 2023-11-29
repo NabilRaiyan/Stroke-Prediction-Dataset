@@ -64,7 +64,7 @@ avg_glucose_level_outliers <- boxplot(stroke_prediction_dataset$avg_glucose_leve
 cat("Potentials outliers for Avg Glucose level are: ", avg_glucose_level_outliers, "\n")
 
 # Finding rows of oultliers in avg_glucose_level column
-avg_glucose_level_outliers_rows <- which(stroke_prediction_dataset$avg_glucose_level > 150)
+avg_glucose_level_outliers_rows <- which(stroke_prediction_dataset$avg_glucose_level > 115)
 cat("Potential rows for outliers in avg glucose level column: ", avg_glucose_level_outliers_rows, "\n")
 
 # Finding mode and median of avg glucose level column
@@ -94,3 +94,7 @@ stroke_prediction_dataset$bmi <- as.numeric(as.character(stroke_prediction_datas
 # Boxplot for bmi column
 bmi_outliers <- boxplot(stroke_prediction_dataset$bmi, main = "Boxplot for BMI column", ylab = "BMI")$out
 cat("Potential outliers of BMI column: ", bmi_outliers, "\n")
+
+# Finding rows of outliers of bmi column
+bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction_dataset$bmi > 47)
+cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
