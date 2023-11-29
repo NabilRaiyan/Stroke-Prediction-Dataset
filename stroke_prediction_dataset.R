@@ -70,3 +70,11 @@ cat("Potential rows for outliers in avg glucose level column: ", avg_glucose_lev
 # Finding mode and median of avg glucose level column
 mode_glucose_level <- as.numeric(names(sort(table(stroke_prediction_dataset$avg_glucose_level), decreasing = TRUE)[1]))
 median_glucose_level <- median(stroke_prediction_dataset$avg_glucose_level, na.rm = TRUE)
+
+# Recovering outliers with mode value in avg glucose column
+
+for (i in 1: length(stroke_prediction_dataset$avg_glucose_level)){
+  if (stroke_prediction_dataset$avg_glucose_level[i] > 115){
+    stroke_prediction_dataset$avg_glucose_level[i] <- mode_glucose_level
+  }
+}
