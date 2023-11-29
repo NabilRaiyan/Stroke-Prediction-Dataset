@@ -78,3 +78,10 @@ for (i in 1: length(stroke_prediction_dataset$avg_glucose_level)){
     stroke_prediction_dataset$avg_glucose_level[i] <- mode_glucose_level
   }
 }
+
+
+# Ever married attribute
+
+# Converting ever married column video to yes = 1 and no = 0 
+stroke_prediction_dataset$ever_married <- ifelse(stroke_prediction_dataset$ever_married == "Yes", 1, ifelse(stroke_prediction_dataset$ever_married == "No", 0, NA))
+
