@@ -101,7 +101,7 @@ bmi_outliers <- boxplot(stroke_prediction_dataset$bmi, main = "Boxplot for BMI c
 cat("Potential outliers of BMI column: ", bmi_outliers, "\n")
 
 # Finding rows of outliers of bmi column
-bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction_dataset$bmi > 47)
+bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction_dataset$bmi > 47 | stroke_prediction_dataset$bmi < 15)
 cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
 
 
@@ -116,7 +116,7 @@ stroke_prediction_dataset$bmi[is.na(stroke_prediction_dataset$bmi)] <- median_bm
 
 # Recovering outliers with mode value in bmi column
 for (i in 1:length(stroke_prediction_dataset$bmi)){
-  if (stroke_prediction_dataset$bmi[i] < 0 | stroke_prediction_dataset$bmi[i] > 40){
+  if (stroke_prediction_dataset$bmi[i] < 0 | stroke_prediction_dataset$bmi[i] > 40 | stroke_prediction_dataset$bmi[i] < 15){
     stroke_prediction_dataset$bmi[i] <- mode_bmi
   }
 }
