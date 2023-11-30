@@ -88,6 +88,9 @@ stroke_prediction_dataset$ever_married <- ifelse(stroke_prediction_dataset$ever_
 
 # BMI attribute
 
+median_bmi <- median(stroke_prediction_dataset$bmi, na.rm = TRUE)
+
+
 # Convert non-numeric values to NA
 stroke_prediction_dataset$bmi <- as.numeric(as.character(stroke_prediction_dataset$bmi))
 
@@ -98,3 +101,7 @@ cat("Potential outliers of BMI column: ", bmi_outliers, "\n")
 # Finding rows of outliers of bmi column
 bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction_dataset$bmi > 47)
 cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
+
+
+
+
