@@ -88,6 +88,7 @@ stroke_prediction_dataset$ever_married <- ifelse(stroke_prediction_dataset$ever_
 
 # BMI attribute
 
+# Finding mode and median of bmi attribute
 median_bmi <- median(stroke_prediction_dataset$bmi, na.rm = TRUE)
 mode_bmi <- as.numeric(names(sort(table(stroke_prediction_dataset$bmi), decreasing = TRUE)[1]))
 
@@ -104,5 +105,8 @@ bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction
 cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
 
 
+# Finding missing values rows in bmi column
+bmi_missing_value_rows <- which(is.na(stroke_prediction_dataset$bmi))
+cat("Potential rows of missing value in BMI: ", bmi_missing_value_rows, "\n")
 
 
