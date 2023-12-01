@@ -109,6 +109,10 @@ cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
 bmi_missing_value_rows <- which(is.na(stroke_prediction_dataset$bmi))
 cat("Potential rows of missing value in BMI: ", bmi_missing_value_rows, "\n")
 
+# Recovering missing values with mode and median in BMI column
+stroke_prediction_dataset$bmi[is.na(stroke_prediction_dataset$bmi)] <- mode_bmi
+stroke_prediction_dataset$bmi[is.na(stroke_prediction_dataset$bmi)] <- median_bmi
+
 
 # Recovering outliers with mode value in bmi column
 for (i in 1:length(stroke_prediction_dataset$bmi)){
