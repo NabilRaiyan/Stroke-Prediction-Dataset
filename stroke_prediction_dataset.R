@@ -88,6 +88,9 @@ stroke_prediction_dataset$ever_married <- ifelse(stroke_prediction_dataset$ever_
 
 # BMI attribute
 
+# Finding mode and median of bmi attribute
+median_bmi <- median(stroke_prediction_dataset$bmi, na.rm = TRUE)
+mode_bmi <- as.numeric(names(sort(table(stroke_prediction_dataset$bmi), decreasing = TRUE)[1]))
 
 
 # Convert non-numeric values to NA
