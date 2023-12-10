@@ -104,7 +104,6 @@ cat("Potential outliers of BMI column: ", bmi_outliers, "\n")
 bmi_outliers_rows <- which(stroke_prediction_dataset$bmi < 0 | stroke_prediction_dataset$bmi > 47 | stroke_prediction_dataset$bmi < 15)
 cat("Potetial rows of outliers of BMI column: ", bmi_outliers_rows, "\n")
 
-
 # Finding missing values rows in bmi column
 bmi_missing_value_rows <- which(is.na(stroke_prediction_dataset$bmi))
 cat("Potential rows of missing value in BMI: ", bmi_missing_value_rows, "\n")
