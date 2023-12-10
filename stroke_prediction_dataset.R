@@ -79,7 +79,6 @@ for (i in 1: length(stroke_prediction_dataset$avg_glucose_level)){
   }
 }
 
-
 # Ever married attribute
 
 # Converting ever married column video to yes = 1 and no = 0 
