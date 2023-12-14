@@ -6,9 +6,6 @@ stroke_prediction_dataset
 
 # Inspecting the data set
 
-head(stroke_prediction_dataset)
-tail(stroke_prediction_dataset)
-str(stroke_prediction_dataset)
 
 summary(stroke_prediction_dataset)
 colSums(is.na(stroke_prediction_dataset))
